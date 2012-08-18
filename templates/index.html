@@ -7,49 +7,62 @@
     <script data-main="{{ url_for('static', filename='js/main') }}" src="{{ url_for('static', filename='js/require-jquery.js') }}"></script>
 </head>
 <body>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-            <div class="container">
-                <a class="brand" id="logo" href="#"></a>
-                <ul class="nav pull-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#profile">Profile</a></li>
-                            <li><a href="#logout">Log Out</a></li>
-                        </ul>
-                    </li>
-                </div>
+    <div class="container">
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <a id="logo" href="#"></a>
+                <!-- <ul class="nav pull-right"> -->
+                <!--     <li class="dropdown"> -->
+                <!--         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a> -->
+                <!--         <ul class="dropdown-menu"> -->
+                <!--             <li><a href="#profile">Profile</a></li> -->
+                <!--             <li><a href="#logout">Log Out</a></li> -->
+                <!--         </ul> -->
+                <!--     </li> -->
+                <!-- </ul> -->
             </div>
         </div>
     </div>
+
     <div class="container">
 
-        <div class="span12">
-
             <ul class="nav nav-tabs" id="incident-tabs">
-                <li class="active"><a href="#incident-a" data-toggle="tab">Incident A</a></li>
-                <li><a href="#incident-b" data-toggle="tab">Incident B</a></li>
+                <li class="active"><a href="#incident-a" data-toggle="tab">Incident</a></li>
             </ul>
 
             <div class="tab-content">
                 <div class="tab-pane active" id="incident-a">
                     <div class="page-header">
-                        <h1>Responding</h1>
+                        <h1>Responses</h1>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Who</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Me</td>
+                                    <td>Hello</td>
+                                </tr>
+                                <tr>
+                                    {% for message in messages %}
+                                        <td>{{ message }}</td>
+                                    {% endfor %}
+                                    {% for responder in responders %}
+                                        <td>{{ responder }}</td>
+                                    {% endfor %}
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="page-header">
-                        <h1>Unavailable</h1>
+                        <h1>Has Not Responded</h1>
                     </div>
-                    <div class="page-header">
-                        <h1>No Response</h1>
-                    </div>
-                </div>
-                <div class="tab-pane" id="incident-b">
-                    <p>goodbye</p>
                 </div>
             </div>
 
-        </div>
 
         <footer class="footer">
             <hr>

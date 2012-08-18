@@ -1,10 +1,14 @@
 @import "bootstrap.min.css";
 body {
-  margin: 100px;
+  margin: 100px 0 0 0;
+}
+.navbar-inner {
+  height: 40px;
+  padding: 5px;
 }
 #logo {
   display: block;
-  margin: 10px;
+  margin: 3px auto;
   padding: 0;
   width: 149px;
   height: 33px;
@@ -12,6 +16,9 @@ body {
 }
 #logo:hover {
   background-position: 148px 1px;
+}
+.table {
+  margin: 20px 0;
 }
 .navbar .nav {
   margin-top: 7px;

@@ -24,7 +24,7 @@ def receive_text_message():
     messages[responder] = message
 
     resp = twilio.twiml.Response()
-    resp.sms('Verified that ' + responder + 'responded with "' + message + '"')
+    resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
     return str(resp)
 
     
