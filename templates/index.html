@@ -47,10 +47,8 @@
                                     <td>Hello</td>
                                 </tr>
                                 <tr>
-                                    {% for message in messages %}
+                                    {% for message, responder in messages, responders %}
                                         <td>{{ message }}</td>
-                                    {% endfor %}
-                                    {% for responder in responders %}
                                         <td>{{ responder }}</td>
                                     {% endfor %}
                                 </tr>
