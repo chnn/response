@@ -1,5 +1,4 @@
 import os
-from itertools import izip
 from flask import Flask, render_template, request, redirect
 import twilio.twiml
 
@@ -8,6 +7,11 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('index.html', responders=responders)
+
+# Will eventually be a better data store (mongo)
+people = {
+    '+14154976513': 'Chris Henn',
+}
 
 responders = {}
 
@@ -21,11 +25,16 @@ def receive_text_message():
     responders[responder] = message
 
     resp = twilio.twiml.Response()
-    resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
+    resp.sms('Verified that ' + phone_to_name(responder) + ' responded with "' + message + '"')
     return str(resp)
 
 def phone_to_name(phonenumber):
     """Return a name given a phone number, if exists in db"""
+
+    if phonenumber in people:
+        return people[phonenumber]
+    else:
+        return phonenumber
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
