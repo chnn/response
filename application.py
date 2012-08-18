@@ -19,13 +19,13 @@ responders = {}
 def receive_text_message():
     """Receive Twilio text message with caller ID"""
 
-    responder = request.values.get('From', None)
+    responder = phone_to_name(request.values.get('From', None))
     message = request.values.get('Body', None)
 
     responders[responder] = message
 
     resp = twilio.twiml.Response()
-    resp.sms('Verified that ' + phone_to_name(responder) + ' responded with "' + message + '"')
+    resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
     return str(resp)
 
 def phone_to_name(phonenumber):
