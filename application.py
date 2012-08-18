@@ -11,9 +11,10 @@ def index():
 responders = {
 }
 
-@app.route('/message')
+@app.route('/message', methods=['GET', 'POST'])
 def receive_text_message():
     """Receive Twilio text message with caller ID"""
+    
 
     
 if __name__ == '__main__':
