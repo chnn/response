@@ -1,0 +1,18 @@
+@import "bootstrap.min.css";
+body {
+  margin: 100px;
+}
+#logo {
+  display: block;
+  margin: 10px;
+  padding: 0;
+  width: 149px;
+  height: 33px;
+  background: url('../img/logo.png');
+}
+#logo:hover {
+  background-position: 148px 1px;
+}
+.navbar .nav {
+  margin-top: 7px;
+}

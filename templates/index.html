@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8" />
+    <title>Response | Home</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/screen.css') }}" />
+    <script data-main="{{ url_for('static', filename='js/main') }}" src="{{ url_for('static', filename='js/require-jquery.js') }}"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" id="logo" href="#"></a>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#profile">Profile</a></li>
+                            <li><a href="#logout">Log Out</a></li>
+                        </ul>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="span12">
+
+            <ul class="nav nav-tabs" id="incident-tabs">
+                <li class="active"><a href="#incident-a" data-toggle="tab">Incident A</a></li>
+                <li><a href="#incident-b" data-toggle="tab">Incident B</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane active" id="incident-a">
+                    <div class="page-header">
+                        <h1>Responding</h1>
+                    </div>
+                    <div class="page-header">
+                        <h1>Unavailable</h1>
+                    </div>
+                    <div class="page-header">
+                        <h1>No Response</h1>
+                    </div>
+                </div>
+                <div class="tab-pane" id="incident-b">
+                    <p>goodbye</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="footer">
+            <hr>
+            <p class="pull-right">Work in progress by Chris Henn.</p>
+        </footer>
+    </div>
+</body>
+</html>
