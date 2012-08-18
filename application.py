@@ -6,22 +6,19 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', responders=responders, messages=messages)
 
-responders = {
-        "+14154976513": "Chris Henn"
-}
-
-messages = {
-}
+responders = []
+messages = []
 
 @app.route('/message', methods=['GET', 'POST'])
 def receive_text_message():
     """Receive Twilio text message with caller ID"""
 
-    responder = responders[request.values.get('From', None)]
+    responder = request.values.get('From', None)
+    responders.append(responder)
     message = request.values.get('Body', None)
-    messages[responder] = message
+    messages.append(message)
 
     resp = twilio.twiml.Response()
     resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
