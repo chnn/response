@@ -1,6 +1,6 @@
 import os
-from flask import Flask, render_template
-import twilio
+from flask import Flask, render_template, request, redirect
+import twilio.twiml
 
 app = Flask(__name__)
 
@@ -14,9 +14,13 @@ responders = {
 @app.route('/message', methods=['GET', 'POST'])
 def receive_text_message():
     """Receive Twilio text message with caller ID"""
+
+    resp = twilio.twiml.Response()
+    resp.sms("Hello")
+    return str(resp)
     
 
     
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
