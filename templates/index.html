@@ -7,24 +7,19 @@
     <script data-main="{{ url_for('static', filename='js/main') }}" src="{{ url_for('static', filename='js/require-jquery.js') }}"></script>
 </head>
 <body>
-    <div class="container">
-        <div class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <a id="logo" href="#"></a>
-                <!-- <ul class="nav pull-right"> -->
-                <!--     <li class="dropdown"> -->
-                <!--         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a> -->
-                <!--         <ul class="dropdown-menu"> -->
-                <!--             <li><a href="#profile">Profile</a></li> -->
-                <!--             <li><a href="#logout">Log Out</a></li> -->
-                <!--         </ul> -->
-                <!--     </li> -->
-                <!-- </ul> -->
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
+        <div class="container">
+    <header class="header">
+            <a id="logo" href="#"></a>
+            <ul class="nav nav-pills pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#profile">Profile</a></li>
+                        <li><a href="#logout">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </header>
 
             <ul class="nav nav-tabs" id="incident-tabs">
                 <li class="active"><a href="#incident-a" data-toggle="tab">Incident</a></li>
