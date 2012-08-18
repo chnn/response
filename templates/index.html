@@ -43,7 +43,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    {% for message, responder in zip(messages, responders) %}
+                                    {% for message, responder in responders.iteritems() %}
                                         <td>{{ message }}</td>
                                         <td>{{ responder }}</td>
                                     {% endfor %}
