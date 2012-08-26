@@ -1,21 +1,28 @@
 @import "bootstrap.min.css";
+@import "elements.less";
 
-.header {
-    margin: 20px 0 40px 0;
+@lightblue: #A7DBD8;
+@palegreen: #E0E4CC;
+@orange: #F38630;
+@brightorange: #FA6900;
+
+body {
+    margin-top: 50px;
 }
 
-#logo {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    width: 149px;
-    height: 33px;
-    background: url('../img/logo.png');
-    &:hover {
-        background-position: 148px 1px;
-    }
+.navbar-inner .brand {
+    margin-left: 10px;
 }
 
-.table {
-    margin: 20px 0;
+.incident-actions {
+    margin-top: 20px;
+}
+
+h2 {
+    width: 50%;
+    border-bottom: 1px dotted grey;
+}
+
+#responderlist, #noresponselist {
+    margin-bottom: 50px;
 }

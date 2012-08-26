@@ -7,40 +7,48 @@
     <script data-main="{{ url_for('static', filename='js/main') }}" src="{{ url_for('static', filename='js/require-jquery.js') }}"></script>
 </head>
 <body>
-        <div class="container">
-    <header class="header">
-            <a id="logo" href="#"></a>
-            <ul class="nav nav-pills pull-right">
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#logout">Log Out</a></li>
+    <div class="container-fluid">
+        <header class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <a class="brand" href="#">Response</a>
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#profile">Profile</a></li>
+                                <li><a href="#logout">Log Out</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-            </ul>
-    </header>
+            </div>
+        </header>
 
-            <ul class="nav nav-tabs" id="incident-tabs">
-                <li class="active"><a href="#incident-a" data-toggle="tab">Incident</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane active" id="incident-a">
-                    <div class="page-header">
-                        <h1>Responses</h1>
-                        <div id="responderlist">
-                        </div>
-                    </div>
-                    <div class="page-header">
-                        <h1>Has Not Responded</h1>
-                    </div>
+        <div class="row-fluid">
+            <div class="span10">
+                <div class="page-header">
+                    <h1>Current Incident</h1>
+                </div>
+                <h2>Has Responded</h2>
+                <div id="responderlist">
+                    <ul>
+                        <li><b>Chris Henn:</b> Message goes here.</li>
+                    </ul>
+                </div>
+                <h2>No Response Yet</h2>
+                <div id="noresponselist">
                 </div>
             </div>
-
+            <div class="span2">
+                <ul class="nav nav-tabs nav-stacked incident-actions">
+                    <li><a>Update Response</a></li>
+                    <li><a>Set O.O.T. status</a></li>
+                </ul>
+            </div>
+        </div>
 
         <footer class="footer">
             <hr>
+            <p class="pull-left">Footer</p>
             <p class="pull-right">Work in progress by Chris Henn.</p>
         </footer>
     </div>
