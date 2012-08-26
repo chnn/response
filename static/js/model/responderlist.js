@@ -14,10 +14,6 @@
 
       Responder.prototype.model = Responder;
 
-      Responder.prototype.parse = function(resp, xhr) {
-        return resp.objects;
-      };
-
       return Responder;
 
     })(Backbone.Collection);

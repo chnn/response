@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', '../model/responderlist', 'handlebars', 'text!../templates/responderlist.handlebars', 'bootstrap'], function(Backbone, ResponderList, Handlebars, ResponderListTemplate) {
+  define(['backbone', '../model/responderlist', 'handlebars', 'text!../template/responderlist.handlebars'], function(Backbone, ResponderList, Handlebars, ResponderListTemplate) {
     return ResponderList = (function(_super) {
 
       __extends(ResponderList, _super);
@@ -12,17 +12,16 @@
         return ResponderList.__super__.constructor.apply(this, arguments);
       }
 
-      ResponderList.prototype.el = "#responderlist";
+      ResponderList.prototype.el = $("#responderlist");
 
       ResponderList.prototype.template = Handlebars.compile(ResponderListTemplate);
 
       ResponderList.prototype.initialize = function() {
-        return this.collection = new ResponderList();
+        return this.render();
       };
 
       ResponderList.prototype.render = function() {
-        this.$el.empty();
-        return this.$el.html(this.template(this.collection.toJSON));
+        return this.$el.html(this.template);
       };
 
       return ResponderList;

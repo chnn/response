@@ -1,22 +1,21 @@
 requirejs.config
+    baseUrl: 'static/js/lib'
+
     paths:
-      bootstrap: 'lib/bootstrap'
-      text: 'lib/text'
+      bootstrap: 'bootstrap'
+      text: 'text'
 
     shim:
       underscore:
-        path: 'lib/underscore'
         exports: '_'
       
       backbone:
-        path: 'lib/backbone'
         deps: ['underscore', 'jquery']
         exports: 'Backbone'
 
       handlebars:
-        path: 'lib/handlebars'
         exports: 'Handlebars'
 
-require(["jquery", "bootstrap"], ($) ->
-    $('#incident-tabs a:first').tab('show')
+require(['../view/responderlist'], (ResponderListView) ->
+  view = new ResponderListView()
 )
