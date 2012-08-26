@@ -5,7 +5,7 @@
 
   define(['backbone', './responder', 'pusher'], function(Backbone, Responder, Pusher) {
     return Responder = (function(_super) {
-      var channel, pusher;
+      var channel, pusher, that;
 
       __extends(Responder, _super);
 
@@ -19,8 +19,10 @@
 
       channel = pusher.subscribe('responses');
 
+      that = Responder;
+
       channel.bind('textresponse', function(response) {
-        return this.add([
+        return that.add([
           {
             name: response.name,
             message: response.message

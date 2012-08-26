@@ -8,6 +8,7 @@ define ['backbone', './responder', 'pusher'], (Backbone, Responder, Pusher) ->
     pusher = new Pusher('fcae1137cc539c41993f')
     channel = pusher.subscribe('responses')
 
+    that = @
     channel.bind('textresponse', (response) ->
-      @add([{name: response.name, message: response.message}])
+      that.add([{name: response.name, message: response.message}])
     )
