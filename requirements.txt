@@ -8,3 +8,4 @@ mongokit==0.8
 pymongo==2.2.1
 twilio==3.3.10
 wsgiref==0.1.2
+pusher==0.6

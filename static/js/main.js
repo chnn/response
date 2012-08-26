@@ -17,6 +17,9 @@
       },
       handlebars: {
         exports: 'Handlebars'
+      },
+      pusher: {
+        exports: 'Pusher'
       }
     }
   });

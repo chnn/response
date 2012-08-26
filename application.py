@@ -1,8 +1,14 @@
 import os
 from flask import Flask, render_template, request, redirect
 import twilio.twiml
+import pusher
 
 app = Flask(__name__)
+
+pusher.app_id = '26515'
+pusher.key = 'fcae1137cc539c41993f'
+pusher.secret = '53ac4bf1196b576c3ec1'
+p = pusher.Pusher()
 
 @app.route('/')
 def index():
@@ -22,7 +28,7 @@ def receive_text_message():
     responder = phone_to_name(request.values.get('From', None))
     message = request.values.get('Body', None)
 
-    responders[responder] = message
+    p['responses'].trigger('textresponse', {'from': responder, 'message': message})
 
     resp = twilio.twiml.Response()
     resp.sms('Verified that ' + responder + ' responded with "' + message + '"')

@@ -3,8 +3,9 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', './responder'], function(Backbone, Responder) {
+  define(['backbone', './responder', 'pusher'], function(Backbone, Responder, Pusher) {
     return Responder = (function(_super) {
+      var channel, pusher;
 
       __extends(Responder, _super);
 
@@ -13,6 +14,19 @@
       }
 
       Responder.prototype.model = Responder;
+
+      pusher = new Pusher('26515');
+
+      channel = pusher.subscribe('responses');
+
+      channel.bind('textresponse', function(response) {
+        return this.add([
+          {
+            name: response.name,
+            message: response.message
+          }
+        ]);
+      });
 
       return Responder;
 

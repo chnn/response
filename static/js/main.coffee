@@ -16,6 +16,9 @@ requirejs.config
       handlebars:
         exports: 'Handlebars'
 
+      pusher:
+        exports: 'Pusher'
+
 require(['../view/responderlist'], (ResponderListView) ->
   view = new ResponderListView()
 )
