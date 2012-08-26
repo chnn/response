@@ -5,7 +5,7 @@ define ['backbone', './responder', 'pusher'], (Backbone, Responder, Pusher) ->
   class Responder extends Backbone.Collection
     model: Responder
 
-    pusher = new Pusher('26515')
+    pusher = new Pusher('fcae1137cc539c41993f')
     channel = pusher.subscribe('responses')
 
     channel.bind('textresponse', (response) ->
