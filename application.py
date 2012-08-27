@@ -30,9 +30,9 @@ def receive_text_message():
 
     p['responses'].trigger('textresponse', {'from': responder, 'message': message})
 
-    resp = twilio.twiml.Response()
-    resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
-    return str(resp)
+    # resp = twilio.twiml.Response()
+    # resp.sms('Verified that ' + responder + ' responded with "' + message + '"')
+    # return str(resp)
 
 def phone_to_name(phonenumber):
     """Return a name given a phone number, if exists in db"""

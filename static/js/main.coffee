@@ -19,6 +19,6 @@ requirejs.config
       pusher:
         exports: 'Pusher'
 
-require(['../view/responderlist'], (ResponderListView) ->
-  view = new ResponderListView()
+require(['backbone', '../view/responderlist'], (Backbone, ResponderListView) ->
+  new ResponderListView()
 )

@@ -1,12 +1,10 @@
 # List of responders
 
-define ['backbone', '../view/responder', '../model/responderlist', 'handlebars', 'text!../template/responderlist.handlebars'], (Backbone, Responder, ResponderList, Handlebars, ResponderListTemplate) ->
+define ['backbone', '../model/responderlist', './responder'], (Backbone, ResponderList, Responder) ->
 
   class ResponderListView extends Backbone.View
 
     el: $("#responderlist")
-
-    template: Handlebars.compile(ResponderListTemplate)
 
     initialize: ->
       @collection = new ResponderList()
@@ -19,3 +17,4 @@ define ['backbone', '../view/responder', '../model/responderlist', 'handlebars',
         view = new ResponderView({model: responder})
         @$el.append(view.render().el)
       , @)
+      @

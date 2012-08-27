@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', '../view/responder', '../model/responderlist', 'handlebars', 'text!../template/responderlist.handlebars'], function(Backbone, Responder, ResponderList, Handlebars, ResponderListTemplate) {
+  define(['backbone', '../model/responderlist', './responder'], function(Backbone, ResponderList, Responder) {
     var ResponderListView;
     return ResponderListView = (function(_super) {
 
@@ -15,8 +15,6 @@
 
       ResponderListView.prototype.el = $("#responderlist");
 
-      ResponderListView.prototype.template = Handlebars.compile(ResponderListTemplate);
-
       ResponderListView.prototype.initialize = function() {
         this.collection = new ResponderList();
         this.collection.on("add", this.render, this);
@@ -25,13 +23,14 @@
 
       ResponderListView.prototype.render = function() {
         this.$el.empty();
-        return _.each(this.collection.models, function(responder) {
+        _.each(this.collection.models, function(responder) {
           var view;
           view = new ResponderView({
             model: responder
           });
           return this.$el.append(view.render().el);
         }, this);
+        return this;
       };
 
       return ResponderListView;

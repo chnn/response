@@ -24,9 +24,8 @@
     }
   });
 
-  require(['../view/responderlist'], function(ResponderListView) {
-    var view;
-    return view = new ResponderListView();
+  require(['backbone', '../view/responderlist'], function(Backbone, ResponderListView) {
+    return new ResponderListView();
   });
 
 }).call(this);
