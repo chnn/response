@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', './responder', 'pusher'], function(Backbone, Responder, Pusher) {
+  define(['backbone', 'responder', 'pusher'], function(Backbone, Responder, Pusher) {
     var ResponderList;
     return ResponderList = (function(_super) {
       var channel, pusher, that,
@@ -14,10 +14,6 @@
       function ResponderList() {
         return ResponderList.__super__.constructor.apply(this, arguments);
       }
-
-      ResponderList.prototype.model = Responder;
-
-      ResponderList.add(new Responder());
 
       pusher = new Pusher('fcae1137cc539c41993f');
 

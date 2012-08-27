@@ -1,6 +1,6 @@
 # List of responders
 
-define ['backbone', '../model/responderlist', './responder'], (Backbone, ResponderList, Responder) ->
+define ['backbone', 'responderlist', 'responderview'], (Backbone, ResponderList, ResponderView) ->
 
   class ResponderListView extends Backbone.View
 

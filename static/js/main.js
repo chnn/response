@@ -5,7 +5,11 @@
     baseUrl: 'static/js/lib',
     paths: {
       bootstrap: 'bootstrap',
-      text: 'text'
+      text: 'text',
+      responder: '../model/responder',
+      responderlist: '../model/responderlist',
+      responderview: '../view/responder',
+      responderlistview: '../view/responderlist'
     },
     shim: {
       underscore: {
