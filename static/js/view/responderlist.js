@@ -18,7 +18,7 @@
       ResponderListView.prototype.initialize = function() {
         this.collection = new ResponderList();
         window.collection = this.collection;
-        this.on("add", this.render(), this);
+        this.on("add:responder", this.render(), this);
         return this.initializePusher();
       };
 
@@ -42,10 +42,11 @@
       };
 
       ResponderListView.prototype.addNewResponse = function(name, message) {
-        return this.collection.add(new Responder({
+        this.collection.add(new Responder({
           name: name,
           message: message
         }));
+        return this.trigger("add:responder");
       };
 
       ResponderListView.prototype.renderResponder = function(responder) {
