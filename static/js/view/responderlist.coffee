@@ -18,10 +18,8 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
       pusher = new Pusher('fcae1137cc539c41993f')
       channel = pusher.subscribe('responses')
 
-      that = @
       channel.bind('textresponse', (response) =>
-        model = new Responder({name: response.from, message: response.message})
-        that.collection.add(model)
+        @addNewResponse(response.name, response.message)
       )
 
     render: ->
@@ -31,3 +29,6 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
         @$el.append(view.render().el)
       , @)
       @
+
+    addNewResponse: (name, message) ->
+      @collection.add(new Responder({name: name, message: message}))

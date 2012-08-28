@@ -23,18 +23,12 @@
       };
 
       ResponderListView.prototype.initializePusher = function() {
-        var channel, pusher, that,
+        var channel, pusher,
           _this = this;
         pusher = new Pusher('fcae1137cc539c41993f');
         channel = pusher.subscribe('responses');
-        that = this;
         return channel.bind('textresponse', function(response) {
-          var model;
-          model = new Responder({
-            name: response.from,
-            message: response.message
-          });
-          return that.collection.add(model);
+          return _this.addNewResponse(response.name, response.message);
         });
       };
 
@@ -48,6 +42,13 @@
           return this.$el.append(view.render().el);
         }, this);
         return this;
+      };
+
+      ResponderListView.prototype.addNewResponse = function(name, message) {
+        return this.collection.add(new Responder({
+          name: name,
+          message: message
+        }));
       };
 
       return ResponderListView;
