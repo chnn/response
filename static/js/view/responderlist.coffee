@@ -20,14 +20,16 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
       channel = pusher.subscribe('responses')
 
       channel.bind('textresponse', (response) =>
-        @addNewResponse(response.name, response.message)
+        @addNewResponse(response.from, response.message)
       )
 
     render: ->
+      console.log("Rendering ResponderListView")
       @$el.empty()
       _.each(@collection.models, (responder) ->
         view = new ResponderView({model: responder})
-        @$el.append(view.render().el)
+        view.render()
+        @$el.append(view.el)
       , @)
       @
 

@@ -29,18 +29,20 @@
         pusher = new Pusher('fcae1137cc539c41993f');
         channel = pusher.subscribe('responses');
         return channel.bind('textresponse', function(response) {
-          return _this.addNewResponse(response.name, response.message);
+          return _this.addNewResponse(response.from, response.message);
         });
       };
 
       ResponderListView.prototype.render = function() {
+        console.log("Rendering ResponderListView");
         this.$el.empty();
         _.each(this.collection.models, function(responder) {
           var view;
           view = new ResponderView({
             model: responder
           });
-          return this.$el.append(view.render().el);
+          view.render();
+          return this.$el.append(view.el);
         }, this);
         return this;
       };

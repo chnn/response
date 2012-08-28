@@ -17,7 +17,12 @@
 
       ResponderView.prototype.template = Handlebars.compile(ResponderTemplate);
 
+      ResponderView.prototype.initialize = function() {
+        return this.render();
+      };
+
       ResponderView.prototype.render = function() {
+        console.log("Rendering ResponderView");
         return this.$el.html(this.template(this.model.toJSON()));
       };
 
