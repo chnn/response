@@ -25,5 +25,5 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
     that = @
     channel.bind('textresponse', (response) =>
       model = new Responder({name: response.from, message: response.message})
-      that.add(model)
+      that.collection.add(model)
     )

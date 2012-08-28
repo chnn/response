@@ -47,7 +47,7 @@
           name: response.from,
           message: response.message
         });
-        return that.add(model);
+        return that.collection.add(model);
       });
 
       return ResponderListView;
