@@ -9,7 +9,6 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
     initialize: ->
       @collection = new ResponderList()
       window.collection = @collection
-      @on("add:responder", @render(), @)
 
       @initializePusher()
 
@@ -31,7 +30,7 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
 
     addNewResponse: (name, message) ->
       @collection.add(new Responder({name: name, message: message}))
-      @trigger("add:responder")
+      @render()
 
     renderResponder: (responder) ->
       view = new ResponderView({model: responder})
