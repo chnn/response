@@ -9,7 +9,7 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
     initialize: ->
       @collection = new ResponderList()
       window.collection = @collection
-      @collection.on("add", @render, @)
+      @collection.on("add", @render(), @)
 
       @initializePusher()
 
