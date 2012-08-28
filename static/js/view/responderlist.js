@@ -18,7 +18,7 @@
       ResponderListView.prototype.initialize = function() {
         this.collection = new ResponderList();
         window.collection = this.collection;
-        this.collection.on("add", this.render(), this);
+        this.on("add", this.render(), this);
         return this.initializePusher();
       };
 
