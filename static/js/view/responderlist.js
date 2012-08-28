@@ -19,8 +19,7 @@
         this.collection = new ResponderList();
         window.collection = this.collection;
         this.collection.on("add", this.render(), this);
-        this.initializePusher();
-        return this.render();
+        return this.initializePusher();
       };
 
       ResponderListView.prototype.initializePusher = function() {
@@ -37,12 +36,7 @@
         console.log("Rendering ResponderListView");
         this.$el.empty();
         _.each(this.collection.models, function(responder) {
-          var view;
-          view = new ResponderView({
-            model: responder
-          });
-          view.render();
-          return this.$el.append(view.el);
+          return this.renderResponder(responder);
         }, this);
         return this;
       };
@@ -52,6 +46,15 @@
           name: name,
           message: message
         }));
+      };
+
+      ResponderListView.prototype.renderResponder = function(responder) {
+        var view;
+        view = new ResponderView({
+          model: responder
+        });
+        console.log("Created new ResponderView: " + view);
+        return this.$el.append(view.render().el);
       };
 
       return ResponderListView;

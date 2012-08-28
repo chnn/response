@@ -13,8 +13,6 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
 
       @initializePusher()
 
-      @render()
-
     initializePusher: ->
       pusher = new Pusher('fcae1137cc539c41993f')
       channel = pusher.subscribe('responses')
@@ -27,11 +25,14 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
       console.log("Rendering ResponderListView")
       @$el.empty()
       _.each(@collection.models, (responder) ->
-        view = new ResponderView({model: responder})
-        view.render()
-        @$el.append(view.el)
+        @renderResponder(responder)
       , @)
       @
 
     addNewResponse: (name, message) ->
       @collection.add(new Responder({name: name, message: message}))
+
+    renderResponder: (responder) ->
+      view = new ResponderView({model: responder})
+      console.log("Created new ResponderView: " + view)
+      @$el.append(view.render().el)
