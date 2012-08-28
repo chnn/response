@@ -34,5 +34,5 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
 
     renderResponder: (responder) ->
       view = new ResponderView({model: responder})
-      console.log("Created new ResponderView: " + view)
+      console.log("Created new ResponderView: " + view.el)
       @$el.append(view.render().el)

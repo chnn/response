@@ -53,7 +53,7 @@
         view = new ResponderView({
           model: responder
         });
-        console.log("Created new ResponderView: " + view);
+        console.log("Created new ResponderView: " + view.el);
         return this.$el.append(view.render().el);
       };
 
