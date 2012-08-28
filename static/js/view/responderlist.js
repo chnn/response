@@ -3,9 +3,11 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', 'responderlist', 'responderview'], function(Backbone, ResponderList, ResponderView) {
+  define(['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], function(Backbone, Responder, ResponderList, ResponderView, Pusher) {
     var ResponderListView;
     return ResponderListView = (function(_super) {
+      var channel, pusher, that,
+        _this = this;
 
       __extends(ResponderListView, _super);
 
@@ -33,9 +35,24 @@
         return this;
       };
 
+      pusher = new Pusher('fcae1137cc539c41993f');
+
+      channel = pusher.subscribe('responses');
+
+      that = ResponderListView;
+
+      channel.bind('textresponse', function(response) {
+        var model;
+        model = new Responder({
+          name: response.from,
+          message: response.message
+        });
+        return that.add(model);
+      });
+
       return ResponderListView;
 
-    })(Backbone.View);
+    }).call(this, Backbone.View);
   });
 
 }).call(this);

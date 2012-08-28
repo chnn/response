@@ -3,11 +3,9 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(['backbone', 'responder', 'pusher'], function(Backbone, Responder, Pusher) {
+  define(['backbone'], function(Backbone) {
     var ResponderList;
     return ResponderList = (function(_super) {
-      var channel, pusher, that,
-        _this = this;
 
       __extends(ResponderList, _super);
 
@@ -15,24 +13,9 @@
         return ResponderList.__super__.constructor.apply(this, arguments);
       }
 
-      pusher = new Pusher('fcae1137cc539c41993f');
-
-      channel = pusher.subscribe('responses');
-
-      that = ResponderList;
-
-      channel.bind('textresponse', function(response) {
-        var model;
-        model = new Responder({
-          name: response.from,
-          message: response.message
-        });
-        return that.add([model]);
-      });
-
       return ResponderList;
 
-    }).call(this, Backbone.Collection);
+    })(Backbone.Collection);
   });
 
 }).call(this);

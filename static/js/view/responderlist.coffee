@@ -1,6 +1,6 @@
 # List of responders
 
-define ['backbone', 'responderlist', 'responderview'], (Backbone, ResponderList, ResponderView) ->
+define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (Backbone, Responder, ResponderList, ResponderView, Pusher) ->
 
   class ResponderListView extends Backbone.View
 
@@ -18,3 +18,12 @@ define ['backbone', 'responderlist', 'responderview'], (Backbone, ResponderList,
         @$el.append(view.render().el)
       , @)
       @
+
+    pusher = new Pusher('fcae1137cc539c41993f')
+    channel = pusher.subscribe('responses')
+
+    that = @
+    channel.bind('textresponse', (response) =>
+      model = new Responder({name: response.from, message: response.message})
+      that.add(model)
+    )
