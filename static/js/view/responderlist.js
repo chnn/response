@@ -6,8 +6,6 @@
   define(['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], function(Backbone, Responder, ResponderList, ResponderView, Pusher) {
     var ResponderListView;
     return ResponderListView = (function(_super) {
-      var channel, pusher, that,
-        _this = this;
 
       __extends(ResponderListView, _super);
 
@@ -20,7 +18,24 @@
       ResponderListView.prototype.initialize = function() {
         this.collection = new ResponderList();
         this.collection.on("add", this.render, this);
+        this.initializePusher();
         return this.render();
+      };
+
+      ResponderListView.prototype.initializePusher = function() {
+        var channel, pusher, that,
+          _this = this;
+        pusher = new Pusher('fcae1137cc539c41993f');
+        channel = pusher.subscribe('responses');
+        that = this;
+        return channel.bind('textresponse', function(response) {
+          var model;
+          model = new Responder({
+            name: response.from,
+            message: response.message
+          });
+          return that.collection.add(model);
+        });
       };
 
       ResponderListView.prototype.render = function() {
@@ -35,24 +50,9 @@
         return this;
       };
 
-      pusher = new Pusher('fcae1137cc539c41993f');
-
-      channel = pusher.subscribe('responses');
-
-      that = ResponderListView;
-
-      channel.bind('textresponse', function(response) {
-        var model;
-        model = new Responder({
-          name: response.from,
-          message: response.message
-        });
-        return that.collection.add(model);
-      });
-
       return ResponderListView;
 
-    }).call(this, Backbone.View);
+    })(Backbone.View);
   });
 
 }).call(this);
