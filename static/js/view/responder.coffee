@@ -8,6 +8,9 @@ define ['backbone', 'responder', 'handlebars', 'text!../template/responder.handl
 
     template: Handlebars.compile(ResponderTemplate)
 
+    initialize: ->
+      @render()
+
     render: ->
       console.log("Rendering ResponderView")
       @$el.html(@template(@model.toJSON()))
