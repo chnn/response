@@ -53,8 +53,9 @@
         view = new ResponderView({
           model: responder
         });
-        console.log("Created new ResponderView: " + view.el);
-        return this.$el.append(view.render().el);
+        console.log("Created new ResponderView");
+        this.$el.append(view.render().el);
+        return console.log(this.$el);
       };
 
       return ResponderListView;
