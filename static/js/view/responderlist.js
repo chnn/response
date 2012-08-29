@@ -56,9 +56,7 @@
           model: responder
         });
         console.log("Created new ResponderView");
-        console.log(view);
-        this.$el.append(view.el);
-        return onsole.log(this.$el);
+        return this.$el.append(view.el);
       };
 
       return ResponderListView;
