@@ -13,9 +13,15 @@
         return ResponderView.__super__.constructor.apply(this, arguments);
       }
 
+      ResponderView.prototype.tagName = "li";
+
       ResponderView.prototype.model = Responder;
 
       ResponderView.prototype.template = Handlebars.compile(ResponderTemplate);
+
+      ResponderView.prototype.events = {
+        "click .delete": "clear"
+      };
 
       ResponderView.prototype.initialize = function() {
         return this.render();
@@ -24,6 +30,10 @@
       ResponderView.prototype.render = function() {
         console.log("Rendering ResponderView");
         return this.$el.html(this.template(this.model.toJSON()));
+      };
+
+      ResponderView.prototype.clear = function() {
+        return this.model.destroy();
       };
 
       return ResponderView;

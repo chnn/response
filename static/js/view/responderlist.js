@@ -13,6 +13,8 @@
         return ResponderListView.__super__.constructor.apply(this, arguments);
       }
 
+      ResponderListView.prototype.tagName = "ul";
+
       ResponderListView.prototype.el = $("#responderlist");
 
       ResponderListView.prototype.initialize = function() {
@@ -56,7 +58,7 @@
         console.log("Created new ResponderView");
         console.log(view);
         this.$el.append(view.el);
-        return console.log(this.$el);
+        return onsole.log(this.$el);
       };
 
       return ResponderListView;

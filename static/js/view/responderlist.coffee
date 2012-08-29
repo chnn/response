@@ -4,6 +4,8 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
 
   class ResponderListView extends Backbone.View
 
+    tagName: "ul"
+
     el: $("#responderlist")
 
     initialize: ->
@@ -37,4 +39,4 @@ define ['backbone', 'responder', 'responderlist', 'responderview', 'pusher'], (B
       console.log("Created new ResponderView")
       console.log(view)
       @$el.append(view.el)
-      console.log(@$el)
+      onsole.log(@$el)
