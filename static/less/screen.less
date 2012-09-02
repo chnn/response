@@ -8,6 +8,7 @@
 
 body {
     margin-top: 50px;
+    min-width: 1024px;
 }
 
 .navbar-inner .brand {
@@ -19,18 +20,29 @@ body {
 }
 
 h2 {
-    width: 50%;
+    width: 85%;
     border-bottom: 1px dotted grey;
 }
 
 #responderlist, #noresponselist {
     margin-bottom: 50px;
-    list-style: none;
-    li {
-        margin: 0;
-        padding: 0;
+}
+
+.table-responderlist {
+    width: 85%;
+}
+
+.response-controls {
+    display: inline;
+    margin-left: 20px;
+    a {
+        padding: 0 2px;
     }
-    .icon-remove {
-        margin: 0 10px;
+}
+
+tr.caution {
+    background-color: #FFF5AD;
+    &:hover {
+        background-color: #FFF5AD;
     }
 }

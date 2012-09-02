@@ -6,10 +6,10 @@
     paths: {
       bootstrap: 'bootstrap',
       text: 'text',
-      responder: '../model/responder',
-      responderlist: '../model/responderlist',
-      responderview: '../view/responder',
-      responderlistview: '../view/responderlist'
+      response: '../model/response',
+      responselist: '../model/responselist',
+      responseview: '../view/response',
+      responselistview: '../view/responselist'
     },
     shim: {
       underscore: {
@@ -28,8 +28,8 @@
     }
   });
 
-  require(['backbone', '../view/responderlist'], function(Backbone, ResponderListView) {
-    return new ResponderListView();
+  require(['backbone', 'responselistview'], function(Backbone, ResponseListView) {
+    return new ResponseListView();
   });
 
 }).call(this);

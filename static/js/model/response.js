@@ -4,16 +4,20 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(['backbone'], function(Backbone) {
-    var Responder;
-    return Responder = (function(_super) {
+    var Response;
+    return Response = (function(_super) {
 
-      __extends(Responder, _super);
+      __extends(Response, _super);
 
-      function Responder() {
-        return Responder.__super__.constructor.apply(this, arguments);
+      function Response() {
+        return Response.__super__.constructor.apply(this, arguments);
       }
 
-      return Responder;
+      Response.prototype.defaults = {
+        status: 1
+      };
+
+      return Response;
 
     })(Backbone.Model);
   });

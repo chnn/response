@@ -4,16 +4,20 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   define(['backbone'], function(Backbone) {
-    var ResponderList;
-    return ResponderList = (function(_super) {
+    var ResponseList;
+    return ResponseList = (function(_super) {
 
-      __extends(ResponderList, _super);
+      __extends(ResponseList, _super);
 
-      function ResponderList() {
-        return ResponderList.__super__.constructor.apply(this, arguments);
+      function ResponseList() {
+        return ResponseList.__super__.constructor.apply(this, arguments);
       }
 
-      return ResponderList;
+      ResponseList.prototype.comparator = function(response) {
+        return response.get("status");
+      };
+
+      return ResponseList;
 
     })(Backbone.Collection);
   });

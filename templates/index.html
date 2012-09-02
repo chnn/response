@@ -24,21 +24,41 @@
         </header>
 
         <div class="row-fluid">
-            <div class="span10">
+            <div class="span9 current-incident">
                 <div class="page-header">
                     <h1>Current Incident</h1>
                 </div>
                 <h2>Has Responded</h2>
-                <ul id="responderlist">
-                </ul>
+                <table class="table table-responderlist">
+                    <thead>
+                        <tr>
+                            <th class="span3"><b>Name</b></th>
+                            <th><b>Message</b></th>
+                        </tr>
+                    </thead>
+                    <tbody id="responselist">
+                        <!-- <tr> -->
+                        <!--     <td class="span6"> -->
+                        <!--         Sample Name -->
+                        <!--         <div class="response-controls"> -->
+                        <!--             <a class="response-avaliable" href="#" rel="tooltip" title="Responder is avaliable"><i class="icon-ok"></i></a> -->
+                        <!--             <a class="response-unavaliable" href="#" rel="tooltip" title="Responder is not avaliable"><i class="icon-remove"></i></a> -->
+                        <!--             <a class="response-notsure" href="#" rel="tooltip" title="Response is maybe"><i class="icon-question-sign"></i></a> -->
+                        <!--             <a class="response-delete" href="#" rel="tooltip" title="Delete response from list"><i class="icon-trash"></i></a> -->
+                        <!--         </div> -->
+                        <!--     </td> -->
+                        <!--     <td>Test data only.</td> -->
+                        <!-- </tr> -->
+                    </tbody>
+                </table>
                 <h2>No Response Yet</h2>
                 <ul id="noresponselist">
                 </ul>
             </div>
-            <div class="span2">
+            <div class="span3">
                 <ul class="nav nav-tabs nav-stacked incident-actions">
-                    <li><a>Update Response</a></li>
-                    <li><a>Set O.O.T. status</a></li>
+                    <li><a href="#">Update Response</a></li>
+                    <li><a href="#">Set O.O.T. status</a></li>
                 </ul>
             </div>
         </div>

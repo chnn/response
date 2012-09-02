@@ -4,10 +4,10 @@ requirejs.config
     paths:
       bootstrap: 'bootstrap'
       text: 'text'
-      responder: '../model/responder'
-      responderlist: '../model/responderlist'
-      responderview: '../view/responder'
-      responderlistview: '../view/responderlist'
+      response: '../model/response'
+      responselist: '../model/responselist'
+      responseview: '../view/response'
+      responselistview: '../view/responselist'
 
     shim:
       underscore:
@@ -23,6 +23,6 @@ requirejs.config
       pusher:
         exports: 'Pusher'
 
-require(['backbone', '../view/responderlist'], (Backbone, ResponderListView) ->
-  new ResponderListView()
+require(['backbone', 'responselistview'], (Backbone, ResponseListView) ->
+  new ResponseListView()
 )
