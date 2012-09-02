@@ -37,6 +37,17 @@ def receive_text_message():
     # resp.sms('Verified that ' + responder + ' responded with "' + message_content + '"')
     # return str(resp)
 
+@app.route('/addtestmessages')
+def push_test_messages():
+    p['responses'].trigger('textresponse', {'from': 'Chris Henn', 'message': 'Testing messages'})
+    p['responses'].trigger('textresponse', {'from': 'A Person', 'message': 'Hello'})
+    p['responses'].trigger('textresponse', {'from': 'Someone Else', 'message': 'Goodbye'})
+    p['responses'].trigger('textresponse', {'from': 'Test Person', 'message': 'Whats up'})
+    p['responses'].trigger('textresponse', {'from': 'Name Lastname', 'message': 'This is my message'})
+    p['responses'].trigger('textresponse', {'from': 'Someones Name', 'message': 'Hi'})
+    return "Success"
+
+
 def phone_to_name(phonenumber):
     """Return a name given a phone number, if exists in db"""
 
