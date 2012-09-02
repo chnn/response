@@ -23,7 +23,7 @@
         "click .response-available": "setStatusAvailable",
         "click .response-unavailable": "setStatusUnavailable",
         "click .response-unsure": "setStatusUnsure",
-        "click .response-delete": "clear"
+        "click .response-delete": "remove"
       };
 
       ResponseView.prototype.initialize = function() {
@@ -34,10 +34,6 @@
         console.log("Rendering ResponseView");
         this.$el.html(this.template(this.model.toJSON()));
         return this.$el.addClass(this.model.get("statusClass"));
-      };
-
-      ResponseView.prototype.clear = function() {
-        return this.remove();
       };
 
       ResponseView.prototype.setStatus = function(to) {
@@ -63,7 +59,7 @@
       };
 
       ResponseView.prototype.remove = function() {
-        this.undelegateEvents();
+        this.unbind();
         return ResponseView.__super__.remove.apply(this, arguments);
       };
 

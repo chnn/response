@@ -24,19 +24,23 @@ h2 {
     border-bottom: 1px dotted grey;
 }
 
-#responderlist, #noresponselist {
-    margin-bottom: 50px;
-}
-
 .table-responderlist {
     width: 85%;
 }
 
+
 .response-controls {
+    opacity: 0.1;
     display: inline;
     margin-left: 20px;
     a {
         padding: 0 2px;
+    }
+}
+
+tr:hover {
+    .response-controls {
+        opacity: 1;
     }
 }
 
@@ -45,4 +49,12 @@ tr.caution {
     &:hover {
         background-color: #FFF5AD;
     }
+}
+
+.legend-responderlist-item {
+    margin: 0 10px;
+}
+
+.legend-responderlist {
+    margin: 40px 0 50px 0;
 }

@@ -13,7 +13,7 @@ define ['backbone', 'response', 'handlebars', 'text!../template/response.handleb
       "click .response-available": "setStatusAvailable"
       "click .response-unavailable": "setStatusUnavailable"
       "click .response-unsure": "setStatusUnsure"
-      "click .response-delete": "clear"
+      "click .response-delete": "remove"
 
     initialize: ->
       @render()
@@ -23,10 +23,6 @@ define ['backbone', 'response', 'handlebars', 'text!../template/response.handleb
       @$el.html(@template(@model.toJSON()))
       @$el.addClass(@model.get("statusClass"))
 
-
-    clear: ->
-      @remove()
-
     setStatus: (to) ->
       @model.set("status", to)
 
@@ -34,7 +30,6 @@ define ['backbone', 'response', 'handlebars', 'text!../template/response.handleb
       @setStatus(2)
       @model.set("statusClass", "success")
       @model.collection.sort()
-      # @$el.addClass("success")
 
     setStatusUnavailable: ->
       @setStatus(4)
@@ -47,5 +42,5 @@ define ['backbone', 'response', 'handlebars', 'text!../template/response.handleb
       @model.collection.sort()
 
     remove: ->
-      @undelegateEvents()
+      @unbind()
       super
