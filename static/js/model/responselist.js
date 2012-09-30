@@ -13,6 +13,8 @@
         return ResponseList.__super__.constructor.apply(this, arguments);
       }
 
+      ResponseList.prototype.url = '/responses';
+
       ResponseList.prototype.comparator = function(response) {
         return response.get("status");
       };

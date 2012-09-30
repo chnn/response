@@ -23,7 +23,9 @@
 
       ResponseListView.prototype.initialize = function() {
         this.collection = new ResponseList();
+        this.collection.fetch();
         this.collection.on('reset', this.render);
+        window.collection = this.collection;
         this.views = new Array();
         return this.initializePusher();
       };

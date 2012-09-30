@@ -10,8 +10,10 @@ define ['backbone', 'response', 'responselist', 'responseview', 'pusher'], (Back
 
     initialize: =>
       @collection = new ResponseList()
+      @collection.fetch()
       @collection.on('reset', @render)
 
+      window.collection = @collection
       @views = new Array()
       
       @initializePusher()
