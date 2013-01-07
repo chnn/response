@@ -1,6 +1,6 @@
 Response is a prototype web app for coordinating emergency responders to incident.
 
-<a href="./response_screen.png"><img src="./response_screen_thumb.png" /></a>
+<a href="https://raw.github.com/chenn/response/master/response_screen.png"><img src="https://raw.github.com/chenn/response/master/response_screen_thumb.png" /></a>
 
 Text your response to a Twilio phone number, and it will be pushed to the list in the web app. The list can be sorted edited to give the incident coordinator a quick overview of who is available. Data is persisted to a Mongo data store. 
 
