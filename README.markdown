@@ -23,4 +23,4 @@ The code is simple, but there are quite a few interactions between technologies 
 
 ### Possible improvements to be made
 
-There is a [development board on Trello](https://trello.com/b/RmoQCeN3) with some ideas for further improving the app.
+There is a [development board on Trello](https://trello.com/b/RmoQCeN3) with some ideas for further improving the app. Please note there's a lot of sloppy code; this project is simply a sandbox to play with some new technologies (Pusher and Twilio mainly.)
